@@ -1,0 +1,40 @@
+curl using /?, /= when i write just ? or =
+io.Writer interface
+type Writer interface {
+	Write(p []byte) (n int, err error)
+}
+
+---------templates---------------
+receiving template Set
+Executing templates
+{{template "example" .}}
+{{block "example" .}}
+relative path from where the go run is executed
+reading files from disc...later gonna use embed package to embed the files in the go program
+
+
+-------file serving--------------
+stripPrefix before using fileServer handler 
+to help the file server look into the correct directory.
+eg:- 
+
+when looking for /css/styles.css inside fsd 
+1. url: "/static/" fsd: "./ui/static" ;fs looks at ./ui/static/static/css/styles.css to serve files (fsd:fileServer directory)
+2. url: "/" fsd: "./ui/static"; fs looks at ./ui/static/css/styles.css to serve files(with the help of StripPrefix)
+
+
+--------handler interface---------
+anything with ServeHTTP method
+http.HandleFunc uses http.HandlerFunc(handlerFunction) and then makes the function to a handler with ServeHTTP method and gives back the handler to the 
+http.HandleFunc("/", f)
+same as 
+http.Handle("/", http.HandlerFunc(f))
+- servemux is a special handler with ServeHTTP which calls other handler's ServeHTTP according to the url.
+by chaining all the handlers in the program and serving it accordingly
+- all handlers work concurrentl: all incoming HTTP requests are
+served in their own goroutiney
+
+-----------------------------------
+
+
+
