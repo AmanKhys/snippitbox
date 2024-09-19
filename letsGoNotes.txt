@@ -35,6 +35,10 @@ by chaining all the handlers in the program and serving it accordingly
 served in their own goroutiney
 
 -----------------------------------
+--managing configuration settings--
+
+set flags with flag.String/Int/Float64 before parsing or using it.
+parse CL flags via flag.Parse()
 
 
 
